@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chip Creator Tool Guide</title>
+</head>
+<body>
+  <h1>Chip Creator Tool Guide</h1>
+  
+  <h2>Overview</h2>
+  <p>Chip Creator GUI is a user-friendly tool for IC designers. It excels in large designs with its linear design capability, supports multiple CPUs with a single license, and fosters teamwork through network files. It easily creates, verifies, and edits chip layouts. At the completion of the chip design, you can easily read/view the log file or report generated in the notepad. It is suggested to use a third-party tool to verify the chip layout to ensure the design is flawless.</p>
+  
+  <h2>Prerequisites</h2>
+  <p>Before proceeding with the Chip Creator GUI Tool, ensure you meet the following prerequisites:</p>
+  <ul>
+    <li>Use the newest version of the Chip Creator GUI tool.</li>
+    <li>Have a valid license to start the Chip Creator GUI tool.</li>
+    <li>Launch the tool using the system command line.</li>
+  </ul>
+  
+  <h2>Procedure</h2>
+  <ol>
+    <li>
+      <h3>Launch the Chip Creator Tool</h3>
+      <p>Set the environment variable <code>TOOL_HOME</code> to the directory of the installed Chip Creator tool through the command:</p>
+      <pre><code>setenv TOOL_HOME &lt;path_to_Chip_Creator&gt;</code></pre>
+      <p>Replace <code>&lt;path_to_Chip_Creator&gt;</code> with the appropriate directory path on your system.</p>
+      <p>Run the <code>chip_creator_app</code> executable to launch the Chip Creator tool through command:</p>
+      <pre><code>$TOOL_HOME/bin/chip_creator_app</code></pre>
+      <p>Use the command <code>start_gui</code> in <code>&lt;CC_PROMPT&gt;</code> in the command line to launch the Graphical User Interface of the tool.</p>
+    </li>
+    <li>
+      <h3>Importing the Library and Design</h3>
+      <p>Go to the 'File' menu and select 'Open Design' to import the library and design.</p>
+      <p>Library files to be imported include cells.lef, tech.lef, timing.lib, and design.netlist.</p>
+      <p>Optionally, you can load old project files.</p>
+      <p>Alternatively, enter the <code>read_file</code> command in the GUI prompt for importing the library and design. (Note: The tech.lef must be read first.)</p>
+    </li>
+    <li>
+      <h3>Verify Reading Status</h3>
+      <p>To verify that all readings are correct, use 'Verify &gt; Inputs' in the menu bar. Once verified, the tool is ready for the next steps.</p>
+      <p>If there are 'INFO' messages in the verification report, these indicate the files that were read before this step.</p>
+    </li>
+    <li>
+      <h3>Create Chip Outline</h3>
+      <p>Before creating the chip outline, consider the following key points:</p>
+      <ul>
+        <li>The distance units are always in microns.</li>
+        <li>The chip boundary must be large enough to fit all standard cells imported from cells.lef file.</li>
+        <li>The outline determines the desired chip size, such as for the CPU.</li>
+      </ul>
+      <p>You can create the chip outline using one of the following options:</p>
+      <ul>
+        <li>Automatic chip outline: Use 'Run &gt; Create Auto Outline' in the menu bar.</li>
+        <li>Manual outline drawing: Use 'Edit &gt; Draw Outline' in the menu bar.</li>
+        <li>Command line: Enter the <code>create_outline</code> command with the desired value.</li>
+      </ul>
+    </li>
+    <!-- Other steps go here -->
+  </ol>
+  
+  <h2>Results</h2>
+  <p>With the above procedure, you will have successfully used the Chip Creator tool to style and create a chip layout that can be sent for manufacturing in integrated circuit packages.</p>
+</body>
+</html>

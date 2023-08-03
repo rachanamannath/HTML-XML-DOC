@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="chip_creator_tool_guide" xml:lang="en">
+    <title>Chip Creator Tool Guide</title>
+    <conbody>
+        <abstract>
+            <p>Chip Creator GUI is a user-friendly tool for IC designers. It excels in large designs with its linear design capability, supports multiple CPUs with a single license, and fosters teamwork through network files. It easily creates, verifies, and edits chip layouts. At the completion of the chip design, you can easily read/view the log file or report generated in the notepad. It is suggested to use a third-party tool to verify the chip layout to ensure the design is flawless.</p>
+        </abstract>
+        <preconditions>
+            <p>Before proceeding with the Chip Creator GUI Tool, ensure you meet the following prerequisites:</p>
+            <ul>
+                <li>Use the newest version of the Chip Creator GUI tool.</li>
+                <li>Have a valid license to start the Chip Creator GUI tool.</li>
+                <li>Launch the tool using the system command line.</li>
+            </ul>
+        </preconditions>
+        <procedure>
+            <step>
+                <title>Launch the Chip Creator Tool</title>
+                <cmd>
+                    <cmdname>Set the environment variable</cmdname>
+                    <params>
+                        <param>TOOL_HOME</param>
+                        <param>
+                            <replaceable>
+                                <b>&lt;path_to_Chip_Creator&gt;</b>
+                            </replaceable>
+                        </param>
+                    </params>
+                </cmd>
+                <substeps>
+                    <substep>
+                        <p>Replace <b>&lt;path_to_Chip_Creator&gt;</b> with the appropriate directory path on your system.</p>
+                    </substep>
+                    <substep>
+                        <cmd>
+                            <cmdname>Run the ‘chip_creator_app’ executable</cmdname>
+                            <params>$TOOL_HOME/bin/chip_creator_app</params>
+                        </cmd>
+                    </substep>
+                    <substep>
+                        <p>Use the command <b>‘start_gui’</b> in <b>&lt;CC_PROMPT&gt;</b> in the command line to launch the Graphical User Interface of the tool.</p>
+                    </substep>
+                </substeps>
+            </step>
+            <step>
+                <title>Importing the Library and Design</title>
+                <substeps>
+                    <substep>
+                        <p>Go to the ‘File’ menu and select ‘Open Design’ to import the library and design.</p>
+                    </substep>
+                    <substep>
+                        <p>Library files to be imported include cells.lef, tech.lef, timing.lib, and design.netlist.</p>
+                    </substep>
+                    <substep>
+                        <p>Optionally, you can load old project files.</p>
+                    </substep>
+                    <substep>
+                        <p>Alternatively, enter the ‘read_file’ command in the GUI prompt for importing the library and design. (Note: The tech.lef must be read first.)</p>
+                    </substep>
+                </substeps>
+            </step>
+            <step>
+                <title>Verify Reading Status</title>
+                <substeps>
+                    <substep>
+                        <p>To verify that all readings are correct, use ‘Verify &gt; Inputs’ in the menu bar. Once verified, the tool is ready for the next steps.</p>
+                    </substep>
+                    <substep>
+                        <p>If there are ‘INFO’ messages in the verification report, these indicate the files that were read before this step.</p>
+                    </substep>
+                </substeps>
+            </step>
+            <step>
+                <title>Create Chip Outline</title>
+                <p>Before creating the chip outline, consider the following key points:</p>
+                <list>
+                    <item>
+                        <p>The distance units are always in microns.</p>
+                    </item>
+                    <item>
+                        <p>The chip boundary must be large enough to fit all standard cells imported from cells.lef file.</p>
+                    </item>
+                    <item>
+                        <p>The outline determines the desired chip size, such as for the CPU.</p>
+                    </item>
+                </list>
+                <substeps>
+                    <substep>
+                        <p>You can create the chip outline using one of the following options:</p>
+                        <list>
+                            <item>
+                                <p>Automatic chip outline: Use ‘Run &gt; Create Auto Outline’ in the menu bar.</p>
+                            </item>
+                            <item>
+                                <p>Manual outline drawing: Use ‘Edit &gt; Draw Outline’ in the menu bar.</p>
+                            </item>
+                            <item>
+                                <p>Command line: Enter the ‘create_outline’ command with the desired value.</p>
+                            </item>
+                        </list>
+                    </substep>
+                </substeps>
+            </step>
+            <step>
+                <title>Place Cells in Chip Border</title>
+                <substeps>
+                    <substep>
+                        <p>To place all cells in the chip border, use ‘Run &gt; Place All Cells’ in the menu bar.</p>
+                    </substep>
+                    <substep>
+                        <p>Alternatively, you can use the ‘place_cells’ command with the ‘-all’ option.</p>
+                    </substep>
+                    <substep>
+                        <p>To manually move the cell, use ‘Select &gt; Arrow key’ for precise positioning. (Note: The cell is displayed on the GUI after placing is done.)</p>
+                    </substep>
+                </substeps>
+            </step>
+            <step>
+                <title>Connect Wires</title>
+                <substeps>
+                    <substep>
+                        <p>To connect all wires, use ‘Run &gt; Connect Wires’ in the menu bar. Alternatively, run the ‘connect’ command.</p>
+                    </substep>
+                    <substep>
+                        <p>Style the layers using the ‘set_layers’ command. Wires utilize different layers available from the tech.lef file.</p>
+                    </substep>
+                    <substep>
+                        <p>If wires don’t connect, consider running the ‘place_cells’ command again. ‘Place All Cells’ option has a random algorithm which can cause issues in wire connections.</p>
+                    </substep>
+                </substeps>
+            </step>
+            <step>
+                <title>Verification of the Completed Chip Design</title>
+                <substeps>
+                    <substep>
+                        <p>To verify the accuracy of the completed chip design, use ‘Verify &gt; All Design’ in the menu bar.</p>
+                    </substep>
+                </substeps>
+            </step>
+        </procedure>
+        <result>
+            <p>With the above procedure, you will have successfully used the Chip Creator tool to style and create a chip layout that can be sent for manufacturing in integrated circuit packages.</p>
+        </result>
+    </conbody>
+</concept>
